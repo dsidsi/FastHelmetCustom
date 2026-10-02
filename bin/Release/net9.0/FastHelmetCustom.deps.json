@@ -1,0 +1,133 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "FastHelmetCustom/1.0.0": {
+        "dependencies": {
+          "SemanticVersioning": "3.0.0.0",
+          "SPTarkov.Common": "4.0.13.0",
+          "SPTarkov.DI": "4.0.13.0",
+          "SPTarkov.Server.Core": "4.0.13.0"
+        },
+        "runtime": {
+          "FastHelmetCustom.dll": {}
+        }
+      },
+      "SemanticVersioning/3.0.0.0": {
+        "runtime": {
+          "SemanticVersioning.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        }
+      },
+      "SPTarkov.Common/4.0.13.0": {
+        "runtime": {
+          "SPTarkov.Common.dll": {
+            "assemblyVersion": "4.0.13.0",
+            "fileVersion": "4.0.13.0"
+          }
+        }
+      },
+      "SPTarkov.DI/4.0.13.0": {
+        "runtime": {
+          "SPTarkov.DI.dll": {
+            "assemblyVersion": "4.0.13.0",
+            "fileVersion": "4.0.13.0"
+          }
+        }
+      },
+      "SPTarkov.Server.Core/4.0.13.0": {
+        "runtime": {
+          "SPTarkov.Server.Core.dll": {
+            "assemblyVersion": "4.0.13.0",
+            "fileVersion": "4.0.13.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/9.0.0.0": {
+        "runtime": {
+          "Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.925.41916"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.0.0": {
+        "runtime": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.925.41916"
+          }
+        }
+      },
+      "System.IO.Hashing/9.0.0.9": {
+        "runtime": {
+          "System.IO.Hashing.dll": {
+            "assemblyVersion": "9.0.0.9",
+            "fileVersion": "9.0.925.41916"
+          }
+        }
+      },
+      "FastCloner/3.3.16.0": {
+        "runtime": {
+          "FastCloner.dll": {
+            "assemblyVersion": "3.3.16.0",
+            "fileVersion": "3.3.16.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FastHelmetCustom/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SemanticVersioning/3.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SPTarkov.Common/4.0.13.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SPTarkov.DI/4.0.13.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SPTarkov.Server.Core/4.0.13.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.Primitives/9.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.IO.Hashing/9.0.0.9": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FastCloner/3.3.16.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
