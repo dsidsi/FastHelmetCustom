@@ -4,8 +4,10 @@ using SPTarkov.Server.Core.DI;
 using SPTarkov.Server.Core.Models.Common;
 using SPTarkov.Server.Core.Models.Eft.Common.Tables;
 using SPTarkov.Server.Core.Models.Enums;
+using SPTarkov.Server.Core.Models.Spt.Config;
 using SPTarkov.Server.Core.Models.Spt.Mod;
 using SPTarkov.Server.Core.Models.Utils;
+using SPTarkov.Server.Core.Servers;
 using SPTarkov.Server.Core.Services;
 using SPTarkov.Server.Core.Utils;
 using SPTarkov.Server.Core.Utils.Json;
@@ -18,7 +20,7 @@ public record ModMetadata : AbstractModMetadata
     public override string Name { get; init; } = "FAST Gen2 Helmets";
     public override string Author { get; init; } = "Kimi";
     public override List<string>? Contributors { get; init; }
-    public override SemanticVersioning.Version Version { get; init; } = new("1.1.0");
+    public override SemanticVersioning.Version Version { get; init; } = new("1.1.1");
     public override SemanticVersioning.Range SptVersion { get; init; } = new("~4.0.0");
     public override List<string>? Incompatibilities { get; init; }
     public override Dictionary<string, SemanticVersioning.Range>? ModDependencies { get; init; }
@@ -31,6 +33,7 @@ public record ModMetadata : AbstractModMetadata
 public class FastHelmetCustomMod(
     ISptLogger<FastHelmetCustomMod> logger,
     DatabaseService databaseService,
+    ConfigServer configServer,
     JsonUtil jsonUtil) : IOnLoad
 {
     // 原版模板
@@ -143,6 +146,16 @@ public class FastHelmetCustomMod(
         foreach (var def in Helmets)
         {
             CreateHelmet(items, handbook, prices, locales, assort, def);
+        }
+
+        // 跳蚤禁售：全部 Gen2 物品加入 ragfair 黑名单
+        var blacklist = configServer.GetConfig<RagfairConfig>().Dynamic.Blacklist.Custom;
+        foreach (var id in Accessories.Select(a => a.NewId).Concat(Helmets.Select(h => h.NewId)))
+        {
+            if (!blacklist.Contains(id))
+            {
+                blacklist.Add(id);
+            }
         }
 
         logger.Success($"[FastHelmetCustom] added {Helmets.Length} Gen2 helmets and {Accessories.Length} Gen2 accessories to Peacekeeper (LL4).", null!);

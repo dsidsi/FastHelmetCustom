@@ -22,3 +22,4 @@ D:\game\ETF\dev-tools\FastHelmetCustom\obj\Release\net9.0\FastHelmetCustom.dll
 D:\game\ETF\dev-tools\FastHelmetCustom\obj\Release\net9.0\refint\FastHelmetCustom.dll
 D:\game\ETF\dev-tools\FastHelmetCustom\obj\Release\net9.0\FastHelmetCustom.pdb
 D:\game\ETF\dev-tools\FastHelmetCustom\obj\Release\net9.0\ref\FastHelmetCustom.dll
+D:\game\ETF\dev-tools\FastHelmetCustom\obj\Release\net9.0\FastHelmetCustom.sourcelink.json

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FastHelmetCustom")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab13196a00774ef4cc94840ebb5becf70a4420ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("FastHelmetCustom")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FastHelmetCustom")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
