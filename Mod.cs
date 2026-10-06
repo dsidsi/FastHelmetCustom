@@ -20,7 +20,7 @@ public record ModMetadata : AbstractModMetadata
     public override string Name { get; init; } = "FAST Gen2 Helmets";
     public override string Author { get; init; } = "Kimi";
     public override List<string>? Contributors { get; init; }
-    public override SemanticVersioning.Version Version { get; init; } = new("1.1.1");
+    public override SemanticVersioning.Version Version { get; init; } = new("1.1.2");
     public override SemanticVersioning.Range SptVersion { get; init; } = new("~4.0.0");
     public override List<string>? Incompatibilities { get; init; }
     public override Dictionary<string, SemanticVersioning.Range>? ModDependencies { get; init; }
@@ -54,7 +54,8 @@ public class FastHelmetCustomMod(
         int Price,
         string? ArmorClass = null, bool HalvePenalty = false, bool Sell = true,
         string BundleOverride = "",
-        string? ExtraFilterSlot = null, string? ExtraFilterTpl = null);
+        string? ExtraFilterSlot = null, string? ExtraFilterTpl = null,
+        string? FaceShieldMaskOverride = null, bool ClearBlocks = false);
 
     private record HelmetDef(
         string NewId, string SrcTpl, string NewName,
@@ -67,7 +68,7 @@ public class FastHelmetCustomMod(
         new("66b1c2a3f4e5d60718293b1a", "66b1c2a3f4e5d60718293c1a", VisorTpl, "item_equipment_helmet_fast_gen2_visor",
             "FAST Gen2 面罩", "FAST Gen2 visor",
             "FAST Gen2 复合面罩，5 级防护，光学畸变与重量惩罚已优化。", "FAST Gen2 composite visor, class 5, optimized optics and weight penalties.",
-            320, ArmorClass: "5", HalvePenalty: true),
+            320, ArmorClass: "5", HalvePenalty: true, FaceShieldMaskOverride: "Anvis", ClearBlocks: true),
         new("66b1c2a3f4e5d60718293b1b", "66b1c2a3f4e5d60718293c1b", SideArmorTpl, "item_equipment_helmet_fast_gen2_side_armor",
             "FAST Gen2 侧甲", "FAST Gen2 side armor",
             "FAST Gen2 耳侧装甲，5 级防护，自带护颚挂点，佩戴更舒适。", "FAST Gen2 ear-side armor, class 5, integrated mandible mount, improved ergonomics.",
@@ -234,6 +235,16 @@ public class FastHelmetCustomMod(
         {
             clone.Properties.MousePenalty = (int)Math.Round((clone.Properties.MousePenalty ?? 0) / 2.0);
             clone.Properties.WeaponErgonomicPenalty = (int)Math.Round((clone.Properties.WeaponErgonomicPenalty ?? 0) / 2.0);
+        }
+        if (def.FaceShieldMaskOverride is not null)
+        {
+            clone.Properties.FaceShieldMask = def.FaceShieldMaskOverride;
+        }
+        if (def.ClearBlocks)
+        {
+            clone.Properties.BlocksEyewear = false;
+            clone.Properties.BlocksFaceCover = false;
+            clone.Properties.BlocksEarpiece = false;
         }
         if (def.ExtraFilterSlot is not null && def.ExtraFilterTpl is not null)
         {

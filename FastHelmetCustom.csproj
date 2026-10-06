@@ -6,21 +6,26 @@
     <Nullable>enable</Nullable>
     <OutputType>Library</OutputType>
     <AssemblyName>FastHelmetCustom</AssemblyName>
-    <Version>1.0.0</Version>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
+  <!--
+    需要本机 SPT 服务端的程序集才能编译。
+    在仓库根目录复制 Directory.Build.props.example 为 Directory.Build.props，
+    并把 GamePath 改成你的 SPT 游戏根目录（与 EscapeFromTarkov.exe 同级）。
+  -->
   <ItemGroup>
     <Reference Include="SPTarkov.Common">
-      <HintPath>..\..\SPT\SPTarkov.Common.dll</HintPath>
+      <HintPath>$(GamePath)\SPT\SPTarkov.Common.dll</HintPath>
     </Reference>
     <Reference Include="SPTarkov.DI">
-      <HintPath>..\..\SPT\SPTarkov.DI.dll</HintPath>
+      <HintPath>$(GamePath)\SPT\SPTarkov.DI.dll</HintPath>
     </Reference>
     <Reference Include="SPTarkov.Server.Core">
-      <HintPath>..\..\SPT\SPTarkov.Server.Core.dll</HintPath>
+      <HintPath>$(GamePath)\SPT\SPTarkov.Server.Core.dll</HintPath>
     </Reference>
     <Reference Include="SemanticVersioning">
-      <HintPath>..\..\SPT\SemanticVersioning.dll</HintPath>
+      <HintPath>$(GamePath)\SPT\SemanticVersioning.dll</HintPath>
     </Reference>
   </ItemGroup>
 
